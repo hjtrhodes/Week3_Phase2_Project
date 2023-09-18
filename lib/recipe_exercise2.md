@@ -5,19 +5,22 @@ Copy this into a `recipe.md` in your project and fill it out.
 ## 1. Describe the Problem
 
 _Put or write the user story here. Add any clarifying notes you might have._
-# As a user so that I can manage my time I want to see an estimate of reading time for a text, assuming that I can read 200 words per minute
+# As a user
+# So that I can improve my grammar
+# I want to verify that a text starts with a capital letter and ends with a suitable sentence-ending punctuation mark.
 
 ## 2. Design the Function Signature
 
 _Include the name of the function, its parameters, return value, and side effects._
 
 ```python
-
-def estimate_reading_time(string):
-    # counts the words in the text
-    # Parameters: A string containing words
-    # Returns: A string "estimated reading time: x number of minutes"
-    # Side Effects: None
+def sentence_checker(sentence_string):
+    #check that the sentence starts with a capital letter and ends with a full stop
+    #parameters: a string containing a sentence 
+    #Returns: 
+    #   True: a string "This sentence is correctly punctuated!"
+    #   False: a string "This sentence is NOT correctly punctuated!"
+    #Side Effects: None
     pass
 
 ```
@@ -31,99 +34,29 @@ _Make a list of examples of what the function will take and return._
 ```python
 
 """
-Given a string with 200 words
-It returns an estimated time of 1 minute
+Given a string with capital but no full stop
+it returns "This sentence is NOT correctly punctuated!"
 """
-estimate_reading_time("Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day") => ["Estimated reading time: 1 minute"]
+
+sentence_checker("This is a bad sentence") => ["This sentence is NOT correctly punctuated!"]
 
 """
-Given a string with 400 words
-It returns an estimated time of 2 minutes
+Given a string with no capital but a full stop
+it returns "This sentence is NOT correctly punctuated!"
 """
-estimate_reading_time("Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day") => ["Estimated reading time: 2 minutes"]
+sentence_checker("this is a bad sentence.") => ["This sentence is NOT correctly punctuated!"]
 
 """
-Given a string with 300 words
-It returns a rounded up estimate of 2 minutes
+Given a string with no capital and no full stop
+it returns "This sentence is NOT correctly punctuated!"
 """
-estimate_reading_time("Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day Hello world how are you doing on this fine day") => ["Estimated reading time: 2 minutes"]
+sentence_checker("this is a bad sentence") => ["This sentence is NOT correctly punctuated!"]
 
 """
-Given a string with no words
-It returns an error
+Given a string with a capital and a full stop
+it returns "This sentence is correctly punctuated!"
 """
-estimate_reading_time("") => ["Cannot estimate reading time"]
-
-```
-# EXAMPLE
-```python
-"""
-Given a lower and an uppercase word
-It returns a list with the uppercase word
-"""
-extract_uppercase("hello WORLD") => ["WORLD"]
-
-"""
-Given two uppercase words
-It returns a list with both words
-"""
-extract_uppercase("HELLO WORLD") => ["HELLO", "WORLD"]
-
-"""
-Given two lowercase words
-It returns an empty list
-"""
-extract_uppercase("hello world") => []
-
-"""
-Given a lower and a mixed case word
-It returns an empty list
-"""
-extract_uppercase("hello WoRLD") => []
-
-"""
-Given a lowercase word and an uppercase word with an exclamation mark
-It returns a list with the uppercase word, no exclamation mark
-"""
-extract_uppercase("hello WORLD!") => ["WORLD"]
-
-"""
-Given an empty string
-It returns an empty list
-"""
-extract_uppercase("") => []
-
-"""
-Given a None value
-It throws an error
-"""
-extract_uppercase(None) throws an error
-```
-
-_Encode each example as a test. You can add to the above list as you go._
-
-## 4. Implement the Behaviour
-
-_After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
-
-Here's an example for you to start with:
-
-```python
-# EXAMPLE
-
-from lib.extract_uppercase import *
-
-"""
-Given a lower and an uppercase word
-It returns a list with the uppercase word
-"""
-def test_extract_uppercase_with_upper_then_lower():
-    result = extract_uppercase("hello WORLD")
-    assert result == ["WORLD"]
-
-```
-
-Ensure all test function names are unique, otherwise pytest will ignore them!
+sentence_checker("This is a good sentence.") => ["This sentence is correctly punctuated!"]
 
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
